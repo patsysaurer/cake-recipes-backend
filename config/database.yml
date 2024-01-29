@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: cake_recipes_backend_production
   username: cake_recipes_backend
   password: <%= ENV["CAKE_RECIPES_BACKEND_DATABASE_PASSWORD"] %>
