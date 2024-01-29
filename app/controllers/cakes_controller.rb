@@ -6,11 +6,31 @@ class CakesController < ApplicationController
 
     def create 
         cake = Cake.create(cake_params)
+
         if cake.valid?
             render json: cake 
         else 
-            render json: cakes.errors, status: 422
+            render json: cake.errors, status: 422
         end
+    end
+
+    def update
+        cake = Cake.find(params[:id])
+        cake.update(cake_params)
+        if cake.valid?
+            render json: cake 
+        else 
+            render json: cake.errors, status: 422
+        end
+    end
+
+    def destroy
+        cake = Cake.find(params[:id])
+        if cake.destroy
+            render json: cake
+        else 
+            render json: cake.errors, status: 422
+        end    
     end
 
     private
