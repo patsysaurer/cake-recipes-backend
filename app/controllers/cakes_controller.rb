@@ -6,7 +6,6 @@ class CakesController < ApplicationController
 
     def create 
         cake = Cake.create(cake_params)
-
         if cake.valid?
             render json: cake 
         else 
@@ -26,11 +25,8 @@ class CakesController < ApplicationController
 
     def destroy
         cake = Cake.find(params[:id])
-        if cake.destroy
-            render json: cake
-        else 
-            render json: cake.errors, status: 422
-        end    
+        cake.destroy
+        render json: cake 
     end
 
     private
