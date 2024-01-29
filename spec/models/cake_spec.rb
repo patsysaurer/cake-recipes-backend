@@ -74,7 +74,7 @@ RSpec.describe Cake, type: :model do
     expect(cake.errors[:cakeImage]).to include("can't be blank")
   end
   
-  it 'Has at least 10 characters for Description' do 
+  it 'Has at least 5 characters for Description' do 
     cake = Cake.create(
       cakeName: 'Birthday Cake',
       cakeDescription: 'Yum',
@@ -86,7 +86,7 @@ RSpec.describe Cake, type: :model do
     expect(cake.errors[:cakeDescription]).to_not be_empty
   end
 
-  it 'Has at least 15 characters for Ingredients' do 
+  it 'Has at least 5 characters for Ingredients' do 
     cake = Cake.create(
       cakeName: 'Birthday Cake',
       cakeDescription: 'Yummy vanilla cake with sprinkles',
@@ -98,7 +98,7 @@ RSpec.describe Cake, type: :model do
     expect(cake.errors[:cakeIngredients]).to_not be_empty
   end
 
-  it 'Has at least 15 characters for Instructions' do 
+  it 'Has at least 5 characters for Instructions' do 
     cake = Cake.create(
       cakeName: 'Birthday Cake',
       cakeDescription: 'Yummy vanilla cake with sprinkles',
